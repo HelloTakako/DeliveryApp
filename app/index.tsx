@@ -1,17 +1,34 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
-// import Clipboard from '@react-native-clipboard/clipboard';
+import { Asset, useAssets } from 'expo-asset';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import {
+  useFonts,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
+
 
 const DeliveryScreen = () => {
   const handleCopyCode = () => {
-    // Clipboard.setString('288-234-123');
     Alert.alert('Success', 'Pick-up code copied to clipboard');
   };
 
+  let [fontsLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
+
   return (
     <View style={styles.container}>
-      <Text style={styles.time}>8:00</Text>
+      {/* <Image
+            source={fedex}
+            style={styles.logo}
+          /> */}
       <View style={styles.header}>
         <Text style={styles.title}>Delivery# 487303</Text>
         <View style={styles.statusContainer}>
@@ -24,16 +41,19 @@ const DeliveryScreen = () => {
       </View>
 
       <View style={styles.deliveryDetails}>
+        <Text style={styles.deliveryDetailsHeader}>Delivery Details</Text>
         <Text style={styles.deliveryTime}>Delivery time: 2023-10-17 17:05:54</Text>
         <View style={styles.deliveryFrom}>
-          <Image
-            source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/FedEx_Express.svg/1200px-FedEx_Express.svg.png' }}
+          {/* {assets ? <Image source={require('../assets/images/fedex.svg')} /> : null} */}
+          <Image source={require('../assets/images/fedex.svg')} style={styles.logo}/>
+          {/* <Image
+            source={{ uri: '../assets/images/fedex.svg' }}
             style={styles.logo}
-          />
+          /> */}
           <View>
             <Text style={styles.deliveryFromText}>Delivery from FedEx</Text>
-            <Text style={styles.address}>Bluebits Office Metrotown</Text>
-            <Text style={styles.address}>4289 Kingsway, Burnaby, BC, Canada, V6B0C8</Text>
+            <Text style={styles.address}>Bluebits Office Metrotown{'\n'}
+            4289 Kingsway, Burnaby, BC, Canada, V6B0C8</Text>
           </View>
         </View>
         <View style={styles.codeContainer}>
@@ -83,51 +103,55 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#fff',
   },
-  time: {
-    fontSize: 16,
-    textAlign: 'center',
-    marginBottom: 16,
-  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 24,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    fontFamily: 'Roboto_700Bold',
   },
   statusContainer: {
-    backgroundColor: '#ffcccc',
+    backgroundColor: '#FCE5E6',
     padding: 4,
-    borderRadius: 4,
+    paddingLeft:12,
+    paddingRight:12,
+    borderRadius: 12,
   },
   status: {
-    color: 'red',
-    fontWeight: 'bold',
+    color: '#EA5455',
+    fontFamily: 'Roboto_700Bold',
+    fontSize: 14,
   },
   adSpace: {
-    height: 100,
-    backgroundColor: '#f0f0f0',
+    height: 123,
+    backgroundColor: '#EDF2F7',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 24,
+    borderRadius: 8,
   },
   deliveryDetails: {
-    backgroundColor: '#f9f9f9',
-    padding: 16,
+    borderTopWidth: 1,
+    borderTopColor: '#F5F5F5',
+    paddingTop: 24,
+    paddingBottom: 16,
     borderRadius: 8,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
+  },
+  deliveryDetailsHeader: {
+    fontFamily: 'Roboto_500Medium',
+    marginBottom: 6,
   },
   deliveryTime: {
-    marginBottom: 8,
+    marginBottom: 16,
     fontWeight: 'bold',
+    fontSize: 12,
+    fontFamily: 'Roboto_400Regular',
+    color: '#9397A5',
   },
   deliveryFrom: {
     flexDirection: 'row',
@@ -140,10 +164,14 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   deliveryFromText: {
-    fontWeight: 'bold',
+    fontFamily: 'Roboto_500Medium',
+    fontSize: 14,
   },
   address: {
     color: '#666',
+    fontFamily: 'Roboto_400Regular',
+    fontSize: 12,
+    lineHeight: 18,
   },
   codeContainer: {
     marginBottom: 16,
