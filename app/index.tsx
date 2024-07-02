@@ -25,10 +25,7 @@ const DeliveryScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* <Image
-            source={fedex}
-            style={styles.logo}
-          /> */}
+      <Image source={require('../assets/images/chevron-left.png')} style={{width: 32, height: 32, marginLeft: -10, marginBottom: 24}}/>
       <View style={styles.header}>
         <Text style={styles.title}>Delivery# 487303</Text>
         <View style={styles.statusContainer}>
@@ -44,12 +41,7 @@ const DeliveryScreen = () => {
         <Text style={styles.deliveryDetailsHeader}>Delivery Details</Text>
         <Text style={styles.deliveryTime}>Delivery time: 2023-10-17 17:05:54</Text>
         <View style={styles.deliveryFrom}>
-          {/* {assets ? <Image source={require('../assets/images/fedex.svg')} /> : null} */}
-          <Image source={require('../assets/images/fedex.svg')} style={styles.logo}/>
-          {/* <Image
-            source={{ uri: '../assets/images/fedex.svg' }}
-            style={styles.logo}
-          /> */}
+          <Image source={require('../assets/images/fedex.png')} style={styles.logo}/>
           <View>
             <Text style={styles.deliveryFromText}>Delivery from FedEx</Text>
             <Text style={styles.address}>Bluebits Office Metrotown{'\n'}
@@ -60,8 +52,8 @@ const DeliveryScreen = () => {
           <View>
             <Text style={styles.subHeader}>Pick-up Code</Text>
             <TouchableOpacity onPress={handleCopyCode} style={styles.copyButton}>
-              <Text style={styles.codeText}>288-234-123</Text>
-              {/* <MaterialIcons name="content-copy" size={20} color="black" /> */}
+              <Text style={styles.codeText}>288-234-123 </Text>
+              <Image source={require('../assets/images/copy.png')} style={styles.optionIcon}/>
             </TouchableOpacity>
           </View>
           <View>
@@ -77,7 +69,7 @@ const DeliveryScreen = () => {
 
       <View style={styles.shadowProp}>
         <TouchableOpacity style={styles.optionButton}>
-        <Image source={require('../assets/images/fedex.svg')} style={styles.optionIcon}/>
+        <Image source={require('../assets/images/locker.png')} style={styles.optionIcon}/>
             <View>
               <Text style={styles.optionText}>Residential Unit Registration</Text>
               <Text style={styles.optionDescription}>Register your unit with BlueBox to enable delivery by unit feature.</Text>
@@ -86,7 +78,7 @@ const DeliveryScreen = () => {
       </View>
 
       <TouchableOpacity style={styles.optionButton}>
-        <Image source={require('../assets/images/fedex.svg')} style={styles.optionIcon}/>
+        <Image source={require('../assets/images/edit.png')} style={styles.optionIcon}/>
         <View>
           <Text style={styles.optionText}>Create a support ticket</Text>
           <Text style={styles.optionDescription}>Submit a support ticket form to us.</Text>
@@ -157,7 +149,7 @@ const styles = StyleSheet.create({
   deliveryFrom: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 24,
     color: '#2b2b2b',
   },
   logo: {
