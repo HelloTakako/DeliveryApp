@@ -56,20 +56,17 @@ const DeliveryScreen = () => {
             4289 Kingsway, Burnaby, BC, Canada, V6B0C8</Text>
           </View>
         </View>
-        <View style={styles.codeContainer}>
-          <View style={styles.codeRow}>
-            <Ionicons name="key" size={24} color="black" />
-            <Text style={styles.pickupCode}>Pick-up Code</Text>
+        <View style={styles.codeRow}>
+          <View>
+            <Text style={styles.subHeader}>Pick-up Code</Text>
+            <TouchableOpacity onPress={handleCopyCode} style={styles.copyButton}>
+              <Text style={styles.codeText}>288-234-123</Text>
+              {/* <MaterialIcons name="content-copy" size={20} color="black" /> */}
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={handleCopyCode} style={styles.copyButton}>
-            <Text style={styles.codeText}>288-234-123</Text>
-            <MaterialIcons name="content-copy" size={20} color="black" />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.codeContainer}>
-          <View style={styles.codeRow}>
-            <Ionicons name="cube" size={24} color="black" />
-            <Text style={styles.compartment}>Compartment 104</Text>
+          <View>
+            <Text style={styles.subHeader}>Compartment</Text>
+            <Text style={styles.codeText}>104</Text>
           </View>
         </View>
       </View>
@@ -78,16 +75,18 @@ const DeliveryScreen = () => {
         <Text style={styles.unlockText}>Unlock Compartment</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.optionButton}>
-        <Ionicons name="home" size={24} color="black" />
-        <View>
-          <Text style={styles.optionText}>Residential Unit Registration</Text>
-          <Text style={styles.optionDescription}>Register your unit with BlueBox to enable delivery by unit feature.</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.shadowProp}>
+        <TouchableOpacity style={styles.optionButton}>
+        <Image source={require('../assets/images/fedex.svg')} style={styles.optionIcon}/>
+            <View>
+              <Text style={styles.optionText}>Residential Unit Registration</Text>
+              <Text style={styles.optionDescription}>Register your unit with BlueBox to enable delivery by unit feature.</Text>
+            </View>
+        </TouchableOpacity>
+      </View>
 
       <TouchableOpacity style={styles.optionButton}>
-        <Ionicons name="help-circle" size={24} color="black" />
+        <Image source={require('../assets/images/fedex.svg')} style={styles.optionIcon}/>
         <View>
           <Text style={styles.optionText}>Create a support ticket</Text>
           <Text style={styles.optionDescription}>Submit a support ticket form to us.</Text>
@@ -113,6 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     fontFamily: 'Roboto_700Bold',
+    color: '#2b2b2b',
   },
   statusContainer: {
     backgroundColor: '#FCE5E6',
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
   deliveryDetailsHeader: {
     fontFamily: 'Roboto_500Medium',
     marginBottom: 6,
+    color: '#2b2b2b',
   },
   deliveryTime: {
     marginBottom: 16,
@@ -157,6 +158,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 16,
+    color: '#2b2b2b',
   },
   logo: {
     width: 50,
@@ -173,61 +175,72 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
   },
-  codeContainer: {
-    marginBottom: 16,
-  },
+
   codeRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
+    justifyContent: 'flex-start',
+    gap: 40,
   },
-  pickupCode: {
-    fontWeight: 'bold',
-    marginLeft: 8,
+  subHeader: {
+    fontFamily: 'Roboto_500Medium',
+    fontSize: 14,
+    marginBottom: 8,
   },
   copyButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: '#ccc',
-    borderWidth: 1,
-    padding: 8,
     borderRadius: 4,
   },
   codeText: {
-    fontSize: 16,
+    fontSize: 20,
     marginRight: 8,
-  },
-  compartment: {
-    fontWeight: 'bold',
-    marginLeft: 8,
+    color: '#4D81E7',
+    fontFamily: 'Roboto_700Bold',
   },
   unlockButton: {
-    backgroundColor: '#007bff',
-    padding: 16,
-    borderRadius: 8,
+    backgroundColor: '#4D81E7',
+    padding: 14,
+    borderRadius: 50,
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 24,
   },
   unlockText: {
     color: '#fff',
-    fontWeight: 'bold',
+    fontFamily: 'Roboto_500Medium',
   },
   optionButton: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
-    borderColor: '#ccc',
-    borderWidth: 1,
+    paddingLeft: 32,
+    paddingBottom: 32,
     borderRadius: 8,
     marginBottom: 16,
+    maxWidth: '90%',
+  },
+  shadowProp: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+    marginBottom: 16,
+  },
+  optionIcon: {
+    width: 24,
+    height: 24,
   },
   optionText: {
-    fontWeight: 'bold',
+    fontFamily: 'Roboto_500Medium',
     marginLeft: 8,
+    marginBottom: 2,
+    fontSize: 14,
   },
   optionDescription: {
-    color: '#666',
+    color: '#9397A5',
     marginLeft: 8,
+    fontSize: 12,
+    width: 'auto',
   },
 });
 
