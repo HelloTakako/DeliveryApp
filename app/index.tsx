@@ -16,9 +16,7 @@ const DeliveryScreen = () => {
         </View>
       </View>
 
-      <View style={styles.adSpace}>
-        <Text>Ad Space</Text>
-      </View>
+      
 
       <View style={styles.deliveryDetails}>
         <Text style={styles.deliveryDetailsHeader}>Delivery Details</Text>
@@ -75,7 +73,7 @@ const DeliveryScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={[styles.shadowProp, {marginBottom: 60}]}>
+      <View style={[styles.shadowProp, {marginBottom: 24}]}>
         <TouchableOpacity style={styles.optionButton}>
           <Image source={require('../assets/images/edit.png')} style={styles.optionIcon}/>
           <View>
@@ -83,6 +81,12 @@ const DeliveryScreen = () => {
             <Text style={styles.optionDescription}>Submit a support ticket form to us.</Text>
           </View>
         </TouchableOpacity>
+      </View>
+
+      <View style={styles.hr} />
+
+      <View style={styles.adSpace}>
+        <Text>Ad Space</Text>
       </View>
     </ScrollView>
   );
@@ -124,7 +128,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EDF2F7',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 60,
     borderRadius: 8,
   },
   deliveryDetails: {
