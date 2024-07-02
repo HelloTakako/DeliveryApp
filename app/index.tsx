@@ -69,21 +69,23 @@ const DeliveryScreen = () => {
 
       <View style={styles.shadowProp}>
         <TouchableOpacity style={styles.optionButton}>
-        <Image source={require('../assets/images/locker.png')} style={styles.optionIcon}/>
-            <View>
-              <Text style={styles.optionText}>Residential Unit Registration</Text>
-              <Text style={styles.optionDescription}>Register your unit with BlueBox to enable delivery by unit feature.</Text>
-            </View>
+          <Image source={require('../assets/images/locker.png')} style={styles.optionIcon}/>
+          <View>
+            <Text style={styles.optionText}>Residential Unit Registration</Text>
+            <Text style={styles.optionDescription}>Register your unit with BlueBox to enable delivery by unit feature.</Text>
+          </View>
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.optionButton}>
-        <Image source={require('../assets/images/edit.png')} style={styles.optionIcon}/>
-        <View>
-          <Text style={styles.optionText}>Create a support ticket</Text>
-          <Text style={styles.optionDescription}>Submit a support ticket form to us.</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.shadowProp}>
+        <TouchableOpacity style={styles.optionButton}>
+          <Image source={require('../assets/images/edit.png')} style={styles.optionIcon}/>
+          <View>
+            <Text style={styles.optionText}>Create a support ticket</Text>
+            <Text style={styles.optionDescription}>Submit a support ticket form to us.</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -195,6 +197,11 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     marginBottom: 24,
+    shadowColor: '#4C90EF',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 10,
+    elevation: 4,
   },
   unlockText: {
     color: '#fff',
@@ -203,20 +210,22 @@ const styles = StyleSheet.create({
   optionButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
-    paddingLeft: 32,
-    paddingBottom: 32,
-    borderRadius: 8,
-    marginBottom: 16,
+    justifyContent: 'flex-start',
+    paddingLeft: 24,
+    borderRadius: 4,
     maxWidth: '90%',
+    gap: 24,
+    height: 80,
   },
   shadowProp: {
+    backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 4,
     marginBottom: 16,
+    
   },
   optionIcon: {
     width: 24,
@@ -224,13 +233,12 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontFamily: 'Roboto_500Medium',
-    marginLeft: 8,
     marginBottom: 2,
     fontSize: 14,
+    height: 'auto',
   },
   optionDescription: {
     color: '#9397A5',
-    marginLeft: 8,
     fontSize: 12,
     width: 'auto',
   },
