@@ -22,6 +22,25 @@ const DeliveryScreen = () => {
 
       <View style={styles.deliveryDetails}>
         <Text style={styles.deliveryDetailsHeader}>Delivery Details</Text>
+        
+        <View style={styles.codeRow}>
+          <View>
+            <Text style={styles.subHeader}>Pick-up Code</Text>
+            <TouchableOpacity onPress={handleCopyCode} style={styles.copyButton}>
+              <Text style={styles.codeText}>288-234-123 </Text>
+              <Image source={require('../assets/images/copy.png')} style={styles.optionIcon}/>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={styles.subHeader}>Compartment</Text>
+            <Text style={styles.codeText}>104</Text>
+          </View>
+        </View>
+
+        <TouchableOpacity style={styles.unlockButton}>
+          <Text style={styles.unlockText}>Unlock Compartment</Text>
+        </TouchableOpacity>
+
         <View style={styles.deliveryDetailsRow}>
           
           <Text style={styles.deliveryTimeHeader}>Delivered at:  
@@ -42,25 +61,7 @@ const DeliveryScreen = () => {
           </Text>
           <Text style={styles.textUnderline}>FedEx</Text>
         </View>
-        
-        <View style={styles.codeRow}>
-          <View>
-            <Text style={styles.subHeader}>Pick-up Code</Text>
-            <TouchableOpacity onPress={handleCopyCode} style={styles.copyButton}>
-              <Text style={styles.codeText}>288-234-123 </Text>
-              <Image source={require('../assets/images/copy.png')} style={styles.optionIcon}/>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <Text style={styles.subHeader}>Compartment</Text>
-            <Text style={styles.codeText}>104</Text>
-          </View>
-        </View>
       </View>
-
-      <TouchableOpacity style={styles.unlockButton}>
-        <Text style={styles.unlockText}>Unlock Compartment</Text>
-      </TouchableOpacity>
 
       <View style={styles.hr} />
 
@@ -130,9 +131,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#F5F5F5',
     paddingTop: 24,
-    paddingBottom: 16,
     borderRadius: 8,
-    marginBottom: 16,
   },
   deliveryDetailsHeader: {
     fontFamily: 'Roboto_500Medium',
@@ -205,7 +204,8 @@ const styles = StyleSheet.create({
     padding: 14,
     borderRadius: 50,
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 40,
+    marginTop: 24,
     shadowColor: '#4C90EF',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.35,
